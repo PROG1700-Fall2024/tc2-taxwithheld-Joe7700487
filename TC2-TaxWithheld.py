@@ -13,13 +13,33 @@
 def main():
     # YOUR CODE STARTS HERE, each line must be indented (one tab)
 
+    # introduction
+    print("Tax Withholding Calculator \n")
+    # init variables
+    provTaxRate = 0.06
+    fedTaxRate = 0.25
+    provTax = 0
+    fedTax = 0
+    totalTax = 0
+    deduction = 0
+    deductRate = 0.02
+    takeHome = 0
+    weeklySalary = int(input("Please enter the full amount of your weekly salary: "))
+    dependents = int(input("How many dependants do you have?: "))
 
+    # calculate tax rates
+    provTax = weeklySalary * provTaxRate
+    fedTax = weeklySalary * fedTaxRate
+    deduction = (deductRate * dependents) * weeklySalary
+    totalTax = provTax + fedTax - deduction
+    takeHome = weeklySalary - totalTax
 
-
-
-
-
+    # print final answer
+    print("\nProvincial Tax Withheld: ${0:.2f}".format(provTax))
+    print("Federeal Tax Withheld: ${0:.2f}".format(fedTax))
+    print("Dependent Deduction for 2 dependents: ${0:.2f}".format(deduction))
+    print("Total Withheld: ${0:.2f}".format(totalTax))
+    print("Total Take-Home Pay: ${0:.2f}".format(takeHome))
 
     # YOUR CODE ENDS HERE
-
 main()
